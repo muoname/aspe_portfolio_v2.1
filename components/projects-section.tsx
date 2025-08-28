@@ -248,7 +248,9 @@ export function ProjectsSection({ styleMode, onProjectClick }: ProjectsSectionPr
                     <p className="text-muted-foreground">{project.description}</p>
                   </div>
                   <StatusIcon
-                    className={`h-6 w-6 ml-3 ${project.status === 'Completed' ? 'text-green-500' : 'text-blue-500'}`}
+                    className={`h-6 w-6 ml-3 ${
+                      project.status === 'Completed' ? 'text-green-500' : 'text-blue-500'
+                    }`}
                   />
                 </div>
 

@@ -461,7 +461,9 @@ function ProjectModal({
                   : project.status}
               </span>
               <span
-                className={`px-4 py-2 rounded-full text-sm font-semibold border ${getDifficultyColor(project.difficulty)}`}
+                className={`px-4 py-2 rounded-full text-sm font-semibold border ${getDifficultyColor(
+                  project.difficulty,
+                )}`}
               >
                 {styleMode === 'game' ? `${project.difficulty} Level` : project.difficulty}
               </span>

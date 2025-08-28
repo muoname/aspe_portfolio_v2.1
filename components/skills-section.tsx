@@ -272,7 +272,9 @@ export function SkillsSection({ styleMode }: SkillsSectionProps) {
                     <h3 className="font-bold text-lg">{skill.name}</h3>
                   </div>
                   <span
-                    className={`px-2 py-1 rounded-full text-xs font-semibold border ${getMasteryBg(skill.mastery)} ${getMasteryColor(skill.mastery)}`}
+                    className={`px-2 py-1 rounded-full text-xs font-semibold border ${getMasteryBg(
+                      skill.mastery,
+                    )} ${getMasteryColor(skill.mastery)}`}
                   >
                     {styleMode === 'game' ? `Lv.${Math.floor(skill.level / 10)}` : skill.mastery}
                   </span>
@@ -292,7 +294,9 @@ export function SkillsSection({ styleMode }: SkillsSectionProps) {
                       style={{
                         width: barsAnimated ? `${skill.level}%` : '0%',
                         transitionDelay: `${skillIndex * 100}ms`,
-                        boxShadow: `0 0 6px ${categoryConfig.glowColor || 'rgba(var(--primary), 0.4)'}`,
+                        boxShadow: `0 0 6px ${
+                          categoryConfig.glowColor || 'rgba(var(--primary), 0.4)'
+                        }`,
                       }}
                     >
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent animate-pulse" />

@@ -46,10 +46,10 @@ export function CharacterStats({ styleMode, barsAnimated, attributes }: Characte
                     stat.name === 'Strength'
                       ? 'bg-gradient-to-r from-red-500 to-red-400'
                       : stat.name === 'Intelligence'
-                        ? 'bg-gradient-to-r from-blue-500 to-blue-400'
-                        : stat.name === 'Agility'
-                          ? 'bg-gradient-to-r from-green-500 to-green-400'
-                          : 'bg-gradient-to-r from-purple-500 to-purple-400'
+                      ? 'bg-gradient-to-r from-blue-500 to-blue-400'
+                      : stat.name === 'Agility'
+                      ? 'bg-gradient-to-r from-green-500 to-green-400'
+                      : 'bg-gradient-to-r from-purple-500 to-purple-400'
                   }`}
                   style={{
                     width: barsAnimated ? `${stat.value}%` : '0%',
@@ -60,10 +60,10 @@ export function CharacterStats({ styleMode, barsAnimated, attributes }: Characte
                             stat.name === 'Strength'
                               ? 'rgba(239, 68, 68, 0.6)'
                               : stat.name === 'Intelligence'
-                                ? 'rgba(59, 130, 246, 0.6)'
-                                : stat.name === 'Agility'
-                                  ? 'rgba(34, 197, 94, 0.6)'
-                                  : 'rgba(168, 85, 247, 0.6)'
+                              ? 'rgba(59, 130, 246, 0.6)'
+                              : stat.name === 'Agility'
+                              ? 'rgba(34, 197, 94, 0.6)'
+                              : 'rgba(168, 85, 247, 0.6)'
                           }`
                         : 'none',
                   }}

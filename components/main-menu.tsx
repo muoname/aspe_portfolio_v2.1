@@ -31,10 +31,10 @@ export function MainMenu({ onViewChange }: MainMenuProps) {
               i % 4 === 0
                 ? 'w-2 h-2 bg-primary/30'
                 : i % 4 === 1
-                  ? 'w-1.5 h-1.5 bg-primary/40'
-                  : i % 4 === 2
-                    ? 'w-1 h-1 bg-primary/50'
-                    : 'w-3 h-3 bg-primary/20'
+                ? 'w-1.5 h-1.5 bg-primary/40'
+                : i % 4 === 2
+                ? 'w-1 h-1 bg-primary/50'
+                : 'w-3 h-3 bg-primary/20'
             }`}
             style={{
               left: `${10 + i * 15}%`,
