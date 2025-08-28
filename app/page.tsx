@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { useTheme } from "next-themes"
 import {
   Sword,
   Users,
@@ -39,10 +38,7 @@ import { PatchNotes } from "@/components/patch-notes"
 
 type ViewMode = "menu" | "character" | "patchNotes"
 type StyleMode = "normal" | "game"
-type Theme = "light" | "dark"
-
 export default function RPGPortfolio() {
-  const { theme, setTheme } = useTheme()
   const [currentView, setCurrentView] = useState<ViewMode>("menu")
   const [styleMode, setStyleMode] = useState<StyleMode>("normal")
   const [mounted, setMounted] = useState(false)
@@ -53,10 +49,6 @@ export default function RPGPortfolio() {
   useEffect(() => {
     setMounted(true)
   }, [])
-
-  const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light")
-  }
 
   const handleViewChange = (newView: ViewMode, newStyleMode?: StyleMode) => {
     setIsTransitioning(true)
@@ -268,7 +260,6 @@ function CharacterInterface({
 }
 
 function ProfileSection({ styleMode, terminology }: { styleMode: StyleMode; terminology: Record<string, string> }) {
-  const [hoveredStat, setHoveredStat] = useState<string | null>(null)
   const [barsAnimated, setBarsAnimated] = useState(false)
   const [sectionsVisible, setSectionsVisible] = useState(false)
 

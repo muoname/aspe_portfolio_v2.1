@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { CheckCircle, Play, Circle, Sword, Clock, Users, Calendar, TrendingUp } from "lucide-react"
 
-export type StyleMode = "professional" | "game"
+export type StyleMode = "normal" | "game"
 
 export interface Project {
   id: string

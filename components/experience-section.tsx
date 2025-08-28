@@ -178,7 +178,10 @@ export function ExperienceSection({ styleMode }: ExperienceSectionProps) {
               <div className="w-1/2">
                 <Card
                   className={`p-4 border-primary/20 bg-card/80 backdrop-blur-sm transition-all duration-300 hover:scale-105 cursor-pointer ${selectedExperience === experience.id ? "shadow-xl border-primary/60" : ""}`}
-                  onClick={() => setSelectedExperience(experience.id)}
+                  onClick={() => {
+                    if (selectedExperience === experience.id) setSelectedExperience(null);
+                    else setSelectedExperience(experience.id);
+                  }}
                 >
                   <div className="space-y-2">
                     <p className="text-muted-foreground">{experience.description}</p>
