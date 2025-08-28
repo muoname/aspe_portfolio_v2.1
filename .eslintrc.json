@@ -1,0 +1,70 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2022,
+    "sourceType": "module",
+    "project": ["./tsconfig.json"]
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "simple-import-sort",
+    "prettier",
+    "react",
+    "react-hooks",
+    "import"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "next/core-web-vitals",
+    "prettier",
+    "plugin:storybook/recommended"
+  ],
+  "rules": {
+    "prettier/prettier": 2,
+    "no-const-assign": 2,
+    "no-dupe-keys": 2,
+    "no-duplicate-imports": 2,
+    "no-empty-character-class": 2,
+    "no-irregular-whitespace": [
+      2,
+      {
+        "skipStrings": true,
+        "skipComments": true,
+        "skipRegExps": true,
+        "skipTemplates": true
+      }
+    ],
+    "no-self-assign": 2,
+    "no-self-compare": 2,
+    "no-unreachable-loop": 2,
+    "no-unused-vars": 0,
+    "@typescript-eslint/no-unused-vars": 2,
+    "block-scoped-var": 2,
+    "no-console": 1,
+    "no-empty": 2,
+    "no-useless-catch": 2,
+    "no-useless-escape": 2,
+    "no-useless-rename": 2,
+    "eqeqeq": 2,
+    "no-var": 2,
+    "@typescript-eslint/no-explicit-any": 1,
+    "@typescript-eslint/no-empty-function": 0,
+    "react/jsx-filename-extension": [
+      "error",
+      { "extensions": [".jsx", ".tsx"] }
+    ],
+    "simple-import-sort/imports": [
+      1,
+      {
+        "groups": [["^react", "^\\w", "^@/(.*)", "^[./]"]]
+      }
+    ]
+  },
+  "settings": {
+    "react": { "version": "detect" },
+    "import/resolver": {
+      "node": { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+    }
+  }
+}

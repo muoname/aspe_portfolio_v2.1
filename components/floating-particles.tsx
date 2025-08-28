@@ -1,23 +1,23 @@
-"use client"
+'use client';
 
-import { useEffect, useState } from "react"
+import { useEffect, useState } from 'react';
 
 interface Particle {
-  id: number
-  x: number
-  y: number
-  size: number
-  opacity: number
-  speed: number
-  direction: number
+  id: number;
+  x: number;
+  y: number;
+  size: number;
+  opacity: number;
+  speed: number;
+  direction: number;
 }
 
 export function FloatingParticles() {
-  const [particles, setParticles] = useState<Particle[]>([])
+  const [particles, setParticles] = useState<Particle[]>([]);
 
   useEffect(() => {
     const createParticles = () => {
-      const newParticles: Particle[] = []
+      const newParticles: Particle[] = [];
       for (let i = 0; i < 15; i++) {
         newParticles.push({
           id: i,
@@ -27,12 +27,12 @@ export function FloatingParticles() {
           opacity: Math.random() * 0.5 + 0.1,
           speed: Math.random() * 0.5 + 0.1,
           direction: Math.random() * Math.PI * 2,
-        })
+        });
       }
-      setParticles(newParticles)
-    }
+      setParticles(newParticles);
+    };
 
-    createParticles()
+    createParticles();
 
     const animateParticles = () => {
       setParticles((prev) =>
@@ -41,12 +41,12 @@ export function FloatingParticles() {
           x: (particle.x + Math.cos(particle.direction) * particle.speed) % window.innerWidth,
           y: (particle.y + Math.sin(particle.direction) * particle.speed) % window.innerHeight,
         })),
-      )
-    }
+      );
+    };
 
-    const interval = setInterval(animateParticles, 50)
-    return () => clearInterval(interval)
-  }, [])
+    const interval = setInterval(animateParticles, 50);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0">
@@ -64,5 +64,5 @@ export function FloatingParticles() {
         />
       ))}
     </div>
-  )
+  );
 }

@@ -1,26 +1,26 @@
-"use client"
+'use client';
 
-import { Mail, MapPin, Phone, Globe } from "lucide-react"
+import { Mail, MapPin, Phone, Globe } from 'lucide-react';
 
-type StyleMode = "normal" | "game"
+type StyleMode = 'normal' | 'game';
 
 interface ContactInfoProps {
-  styleMode: StyleMode
+  styleMode: StyleMode;
 }
 
 export function ContactInfo({ styleMode }: ContactInfoProps) {
   const contactInfo = [
-    { label: "Location", value: "Las Pinas, Manila", icon: MapPin },
-    { label: "Email", value: "eugenelancea@gmail.com", icon: Mail },
-    { label: "Phone", value: "+63 96626 74610", icon: Phone },
-    { label: "Website", value: "easpe.vercel.app", icon: Globe },
-  ]
+    { label: 'Location', value: 'Las Pinas, Manila', icon: MapPin },
+    { label: 'Email', value: 'eugenelancea@gmail.com', icon: Mail },
+    { label: 'Phone', value: '+63 96626 74610', icon: Phone },
+    { label: 'Website', value: 'easpe.vercel.app', icon: Globe },
+  ];
 
   return (
     <div className="space-y-6">
       <h4 className="text-xl font-semibold text-primary flex items-center space-x-2">
         <Mail className="h-5 w-5" />
-        <span>{styleMode === "game" ? "Guild Contact" : "Contact Information"}</span>
+        <span>{styleMode === 'game' ? 'Guild Contact' : 'Contact Information'}</span>
       </h4>
 
       <div className="space-y-3">
@@ -38,5 +38,5 @@ export function ContactInfo({ styleMode }: ContactInfoProps) {
         ))}
       </div>
     </div>
-  )
+  );
 }

@@ -8,7 +8,12 @@ type StyleMode = "normal" | "game"
 interface Achievement {
   name: string
   description: string
-  icon: any
+  icon:
+    | typeof Trophy
+    | typeof Crown
+    | typeof Sword
+    | typeof Shield
+    | typeof Sparkles
   rarity: string
 }
 
@@ -17,7 +22,7 @@ interface AchievementGalleryProps {
 }
 
 export function AchievementGallery({ styleMode }: AchievementGalleryProps) {
-  const achievements = [
+  const achievements: Achievement[] = [
     { name: "Code Master", description: "Mastered 10+ programming languages", icon: Crown, rarity: "legendary" },
     { name: "Bug Slayer", description: "Fixed 1000+ bugs", icon: Sword, rarity: "epic" },
     { name: "Team Leader", description: "Led 5+ successful projects", icon: Shield, rarity: "rare" },

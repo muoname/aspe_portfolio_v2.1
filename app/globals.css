@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -145,7 +145,7 @@
   .animate-pulse,
   .animate-spin,
   .animate-bounce,
-  [class*="animate-"] {
+  [class*='animate-'] {
     animation-fill-mode: both;
   }
 }

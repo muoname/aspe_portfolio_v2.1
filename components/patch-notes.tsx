@@ -1,11 +1,11 @@
-"use client"
+'use client';
 
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { ArrowLeft, Zap, Shield, Star, AlertTriangle } from "lucide-react"
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
+import { ArrowLeft, Zap, Shield, Star, AlertTriangle } from 'lucide-react';
 
 interface PatchNotesProps {
-  onBack: () => void
+  onBack: () => void;
 }
 
 export function PatchNotes({ onBack }: PatchNotesProps) {
@@ -142,5 +142,5 @@ export function PatchNotes({ onBack }: PatchNotesProps) {
         </div>
       </div>
     </div>
-  )
+  );
 }
