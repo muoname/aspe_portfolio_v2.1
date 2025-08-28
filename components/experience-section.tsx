@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Card } from '@/components/ui/card';
-import { Building, Circle, Trophy } from 'lucide-react';
+import { Building, ChevronDown, ChevronUp, Circle, Trophy } from 'lucide-react';
 
 type StyleMode = 'normal' | 'game';
 
@@ -205,6 +205,14 @@ export function ExperienceSection({ styleMode }: ExperienceSectionProps) {
                   }}
                 >
                   <div className="space-y-2">
+                    <div className="absolute top-2 right-1 p-1 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                      {selectedExperience ? (
+                        <ChevronUp className="h-5 w-5 text-gray-600 dark:text-gray-300" />
+                      ) : (
+                        <ChevronDown className="h-5 w-5 text-gray-600 dark:text-gray-300" />
+                      )}
+                    </div>
+
                     <p className="text-muted-foreground">{experience.description}</p>
                     {selectedExperience === experience.id && (
                       <div className="pt-4 border-t border-primary/20 space-y-3">

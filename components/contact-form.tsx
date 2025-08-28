@@ -126,10 +126,11 @@ export function ContactForm({ styleMode }: ContactFormProps) {
   return (
     <div className="space-y-6">
       <div className="flex items-center space-x-3">
-        <Mail className="h-6 w-6 text-primary" />
+        {styleMode === 'game' ? <></> : <Mail className="h-6 w-6 text-primary" />}
         <h2 className="text-2xl font-bold text-primary">
-          {styleMode === 'game' ? 'Send Message to Guild' : 'Contact Form'}
+          {styleMode === 'game' ? 'Quest Details' : 'Contact Form'}
         </h2>
+        {styleMode === 'game' && <Mail className="h-8 w-8 text-primary animate-pulse" />}
       </div>
 
       <p className="text-muted-foreground">

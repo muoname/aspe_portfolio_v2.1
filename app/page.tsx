@@ -64,9 +64,9 @@ export default function RPGPortfolio() {
       return {
         projects: 'Quests',
         skills: 'Abilities',
-        experience: 'Training',
+        experience: 'Guilds',
         education: 'Education',
-        contact: 'Guild Contact',
+        contact: 'Send a Quest',
         about: 'Character Bio',
         companies: 'Guilds',
         certificates: 'Achievements',
