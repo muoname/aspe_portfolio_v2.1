@@ -35,6 +35,7 @@ import { ProjectsSection, type Project as ProjectType } from '@/components/proje
 import { ContactForm } from '@/components/contact-form';
 import { FloatingParticles } from '@/components/floating-particles';
 import { PatchNotes } from '@/components/patch-notes';
+import { MusicPlayer } from '@/components/music-player';
 
 type ViewMode = 'menu' | 'character' | 'patchNotes';
 type StyleMode = 'normal' | 'game';
@@ -119,6 +120,7 @@ export default function RPGPortfolio() {
         <FloatingParticles />
       </div>
 
+      <MusicPlayer />
       <ThemeToggle />
 
       {isTransitioning && (
