@@ -28,13 +28,13 @@ export function CharacterInfo({ styleMode, characterStats }: CharacterInfoProps)
                               bg-primary text-primary-foreground text-xs px-3 py-3 rounded-lg shadow-lg
                               opacity-0 group-hover:opacity-100 transition-opacity whitespace-normal text-left w-36"
               >
-                <p>
+                <span>
                   Level is based on work experience.
                   <br />
                   <strong>Formula:</strong> Level = Years of Experience × 10
                   <br />
                   Progress toward next level is shown in the bar.
-                </p>
+                </span>
               </div>
             </div>
           </>
