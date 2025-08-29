@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/old/:path*",
-      "destination": "https://old-eugenelancea.vercel.app/:path*"
+      "destination": "aspe-portfolio-glh0viq11-muonames-projects.vercel.app"
     }
   ]
 }

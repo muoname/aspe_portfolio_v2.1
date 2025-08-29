@@ -176,7 +176,7 @@ export function ProjectsSection({ styleMode, onProjectClick }: ProjectsSectionPr
       category: 'Web Application',
       completionDate: '2023-01',
       githubUrl: '#',
-      liveUrl: 'https://eugenelanceaspe.vercel.app/',
+      liveUrl: 'https://old-eugenelancea.vercel.app/',
       rewards:
         styleMode === 'game'
           ? ['800 XP', 'Portfolio Pioneer', 'Frontend Explorer']

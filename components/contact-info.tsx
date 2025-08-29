@@ -13,7 +13,7 @@ export function ContactInfo({ styleMode }: ContactInfoProps) {
     { label: 'Location', value: 'Las Pinas, Manila', icon: MapPin },
     { label: 'Email', value: 'eugenelancea@gmail.com', icon: Mail },
     { label: 'Phone', value: '+63 96626 74610', icon: Phone },
-    { label: 'Website', value: 'easpe.vercel.app', icon: Globe },
+    { label: 'Website', value: 'eugenelancea.vercel.app', icon: Globe },
   ];
 
   return (
