@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { Mail, User, Award, Briefcase, Building, Crown, MessageCircle, X } from 'lucide-react';
+import { Mail, User, Award, Briefcase, Building, Crown } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { MainMenu } from '@/components/main-menu';
 import { CharacterHeader } from '@/components/character-header';
@@ -21,7 +21,6 @@ import { FloatingParticles } from '@/components/floating-particles';
 import { PatchNotes } from '@/components/patch-notes';
 import { MusicPlayer } from '@/components/music-player';
 import { ProjectModal } from '@/components/modals/project-modal';
-import { Input } from '@/components/ui/input';
 import { ChatMessage } from '@/components/chatbox';
 
 type ViewMode = 'menu' | 'character' | 'patchNotes';
@@ -333,96 +332,3 @@ function ProfileSection({
     </div>
   );
 }
-
-// function ChatMessage() {
-//   const [chatOpen, setChatOpen] = useState(false);
-//   const [messages, setMessages] = useState([
-//     { sender: 'bot', text: 'Hi! How can I help you today?' },
-//   ]);
-//   const [input, setInput] = useState('');
-
-//   const toggleChat = () => setChatOpen(!chatOpen);
-
-//   const sendMessage = () => {
-//     if (!input.trim()) return;
-//     setMessages([...messages, { sender: 'user', text: input }]);
-//     setInput('');
-//   };
-
-//   return (
-//     <div className="fixed bottom-4 left-4 z-9999 flex items-end space-x-2">
-//       {/* Floating Chat Button */}
-//       <Button
-//         variant="outline"
-//         size="icon"
-//         onClick={toggleChat}
-//         className="border-primary/20 hover:border-primary/40 hover:bg-primary/10 bg-transparent transition-all duration-300 hover:scale-110"
-//       >
-//         <MessageCircle className="h-5 w-5 text-primary" />
-//       </Button>
-
-//       {/* Chat Window */}
-//       <div
-//         className={`fixed bottom-4 left-4 transition-all duration-300 ${
-//           chatOpen
-//             ? 'opacity-100 translate-y-0 pointer-events-auto'
-//             : 'opacity-0 translate-y-4 pointer-events-none'
-//         }`}
-//       >
-//         <div className="flex flex-col bg-background/90 backdrop-blur-md border border-primary/20 rounded-xl shadow-lg w-[20rem] sm:w-[24rem] h-[28rem] sm:h-[32rem] overflow-hidden">
-//           {/* Header */}
-//           <div className="flex justify-between items-center px-4 py-2 border-b border-primary/20 bg-primary/5">
-//             <span className="font-semibold text-primary">Leave a Message</span>
-//             <Button variant="ghost" size="icon" onClick={toggleChat} className="rounded-full">
-//               <X className="h-4 w-4 text-primary" />
-//             </Button>
-//           </div>
-
-//           {/* Messages */}
-//           <div className="flex-1 overflow-y-auto p-3 space-y-4 text-sm">
-//             {messages.map((msg, i) => (
-//               <div
-//                 key={i}
-//                 className={`flex flex-col ${msg.sender === 'user' ? 'items-end' : 'items-start'}`}
-//               >
-//                 {/* Name */}
-//                 <span
-//                   className={`mb-1 text-xs font-medium ${
-//                     msg.sender === 'user' ? 'text-primary' : 'text-gray-500'
-//                   }`}
-//                 >
-//                   {msg.sender === 'user' ? 'You' : msg.sender || 'Player'}
-//                 </span>
-
-//                 {/* Bubble */}
-//                 <div
-//                   className={`px-3 py-2 rounded-lg max-w-[80%] ${
-//                     msg.sender === 'user'
-//                       ? 'bg-primary text-white rounded-br-none'
-//                       : 'bg-primary/10 text-primary rounded-bl-none'
-//                   }`}
-//                 >
-//                   {msg.text}
-//                 </div>
-//               </div>
-//             ))}
-//           </div>
-
-//           {/* Input */}
-//           <div className="p-3 border-t border-primary/20 flex items-center gap-2">
-//             <Input
-//               value={input}
-//               onChange={(e) => setInput(e.target.value)}
-//               placeholder="Type a message..."
-//               className="flex-1"
-//               onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
-//             />
-//             <Button onClick={sendMessage} className="px-3">
-//               Send
-//             </Button>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
