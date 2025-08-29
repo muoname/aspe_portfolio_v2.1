@@ -38,128 +38,107 @@ export function ProjectsSection({ styleMode, onProjectClick }: ProjectsSectionPr
     {
       id: 'ecommerce',
       title: 'E-commerce Platform',
-      description: 'Full-stack e-commerce solution with React and Node.js',
+      description: 'Full-stack online store with payment and admin dashboard',
       longDescription:
-        'A comprehensive e-commerce platform featuring user authentication, product catalog, shopping cart, payment integration, and admin dashboard. Built with modern technologies and best practices.',
+        'Developed in 7 days as a solo project, featuring Stripe payment, order management, and an admin dashboard. Implemented with CodeIgniter (PHP) and MySQL on the backend, and Bootstrap for rapid UI delivery.',
       status: 'Completed',
-      difficulty: 'Expert',
-      technologies: ['React', 'Node.js', 'PostgreSQL', 'Stripe', 'Docker'],
-      duration: '6 months',
-      teamSize: 5,
-      impact: 'Increased sales by 40%',
+      difficulty: 'Advanced',
+      technologies: ['PHP', 'CodeIgniter', 'MySQL', 'Bootstrap', 'Stripe'],
+      duration: '1 week',
+      teamSize: 1,
+      impact: 'Store prototype in 7 days',
       category: 'Web Application',
-      completionDate: '2023-12',
+      completionDate: '2022-08',
       githubUrl: '#',
       liveUrl: '#',
       rewards:
         styleMode === 'game'
-          ? ['1500 XP', 'Leadership Badge', 'Commerce Master']
-          : ['Team Leadership', 'Full-Stack Development', 'Payment Integration'],
+          ? ['1200 XP', 'Speed Coder Badge', 'Commerce Conqueror']
+          : ['Full-Stack Delivery', 'Stripe Integration', 'Rapid Prototyping'],
     },
     {
-      id: 'taskmanager',
-      title: 'Task Management App',
-      description: 'Real-time collaboration tool with WebSocket integration',
+      id: 'rpg-portfolio',
+      title: 'RPG Web Portfolio',
+      description: 'Gamified developer portfolio with quest-like UI',
       longDescription:
-        'A collaborative task management application with real-time updates, team collaboration features, file sharing, and advanced project tracking capabilities.',
+        'A personal web portfolio designed as an RPG quest log. Built with Next.js, Tailwind, shadcn/ui, Supabase for data, and deployed on Vercel. Features interactive animations, skill trees, and a quest-based project showcase.',
+      status: 'In Progress',
+      difficulty: 'Expert',
+      technologies: ['Next.js', 'React', 'Tailwind', 'shadcn/ui', 'Supabase', 'Vercel'],
+      duration: '2 months',
+      teamSize: 1,
+      impact: 'Interactive portfolio',
+      category: 'Web Application',
+      completionDate: '2024-09',
+      githubUrl: '#',
+      liveUrl: '#',
+      rewards:
+        styleMode === 'game'
+          ? ['1500 XP', 'UI Artisan', 'Quest Designer']
+          : ['Next.js Deployment', 'Supabase Integration', 'UI/UX Design'],
+    },
+    {
+      id: 'real-estate',
+      title: 'Real Estate Platform Modules',
+      description: 'Enterprise modules for Japan’s largest property portal',
+      longDescription:
+        'Worked as Junior R&D Engineer on production modules in React and TypeScript. Contributed 37+ features and bug fixes, optimized filtering queries, and handled sprint-critical tickets that improved site performance.',
+      status: 'Completed',
+      difficulty: 'Expert',
+      technologies: ['React', 'TypeScript', 'Rails', 'MySQL', 'GitHub'],
+      duration: '1 year',
+      teamSize: 8,
+      impact: '37+ features delivered',
+      category: 'Web Application',
+      completionDate: '2024-07',
+      githubUrl: '#',
+      liveUrl: '#',
+      rewards:
+        styleMode === 'game'
+          ? ['2000 XP', 'Bug Slayer', 'Sprint Hero']
+          : ['React + TypeScript Expertise', 'Performance Optimization', 'Agile Development'],
+    },
+    {
+      id: 'productivity-tool',
+      title: 'Issue Automation Tool',
+      description: 'Custom ticket generator for QA team',
+      longDescription:
+        'Built a customized productivity tool to generate automated issues/tickets for the testing team. Improved workflow speed by automating repetitive reporting tasks and reducing manual errors.',
       status: 'Completed',
       difficulty: 'Advanced',
-      technologies: ['React', 'Socket.io', 'Express', 'MongoDB', 'Redis'],
-      duration: '4 months',
-      teamSize: 3,
-      impact: 'Improved team productivity by 60%',
+      technologies: ['Python', 'Node.js', 'GitHub API', 'CI/CD'],
+      duration: '2 months',
+      teamSize: 2,
+      impact: '50% faster QA workflow',
       category: 'Productivity Tool',
-      completionDate: '2023-08',
+      completionDate: '2023-05',
       githubUrl: '#',
       liveUrl: '#',
       rewards:
         styleMode === 'game'
-          ? ['1200 XP', 'Collaboration Expert', 'Real-time Master']
-          : ['WebSocket Implementation', 'Team Collaboration', 'Real-time Features'],
+          ? ['1100 XP', 'Automation Alchemist', 'Workflow Enhancer']
+          : ['Python Scripting', 'Automation Development', 'QA Collaboration'],
     },
     {
-      id: 'dashboard',
-      title: 'Data Visualization Dashboard',
-      description: 'Interactive charts and analytics platform',
+      id: 'unity-game',
+      title: 'Android Visual Novel',
+      description: 'Unity-powered game published on Google Play',
       longDescription:
-        'An advanced analytics dashboard with interactive charts, real-time data processing, custom reporting, and machine learning insights for business intelligence.',
-      status: 'In Progress',
-      difficulty: 'Expert',
-      technologies: ['React', 'D3.js', 'Python', 'FastAPI', 'PostgreSQL'],
-      duration: '8 months',
-      teamSize: 4,
-      impact: 'Expected 50% faster decision making',
-      category: 'Analytics',
-      completionDate: '2024-03',
-      githubUrl: '#',
-      liveUrl: '#',
-      rewards:
-        styleMode === 'game'
-          ? ['2000 XP', 'Data Wizard', 'Visualization Master']
-          : ['Data Visualization', 'Analytics', 'Machine Learning'],
-    },
-    {
-      id: 'mobile',
-      title: 'Mobile Fitness App',
-      description: 'Cross-platform fitness tracking application',
-      longDescription:
-        'A comprehensive fitness tracking app with workout plans, nutrition tracking, social features, and AI-powered recommendations.',
+        'Created an interactive visual novel with branching storylines, character art, and custom dialogue system. Published on Google Play using Unity and C# scripting.',
       status: 'Completed',
-      difficulty: 'Advanced',
-      technologies: ['React Native', 'Firebase', 'Node.js', 'TensorFlow'],
-      duration: '5 months',
-      teamSize: 4,
-      impact: '10k+ active users',
-      category: 'Mobile App',
-      completionDate: '2023-06',
-      githubUrl: '#',
-      liveUrl: '#',
-      rewards:
-        styleMode === 'game'
-          ? ['1300 XP', 'Mobile Master', 'Health Guardian']
-          : ['Mobile Development', 'AI Integration', 'User Engagement'],
-    },
-    {
-      id: 'blockchain',
-      title: 'Blockchain Voting System',
-      description: 'Secure decentralized voting platform',
-      longDescription:
-        'A blockchain-based voting system ensuring transparency, security, and immutability of votes with smart contracts and decentralized architecture.',
-      status: 'Completed',
-      difficulty: 'Expert',
-      technologies: ['Solidity', 'Web3.js', 'React', 'Ethereum', 'IPFS'],
-      duration: '7 months',
-      teamSize: 3,
-      impact: '100% vote integrity',
-      category: 'Blockchain',
-      completionDate: '2023-10',
-      githubUrl: '#',
-      liveUrl: '#',
-      rewards:
-        styleMode === 'game'
-          ? ['1800 XP', 'Blockchain Pioneer', 'Security Expert']
-          : ['Blockchain Development', 'Smart Contracts', 'Security Implementation'],
-    },
-    {
-      id: 'ai-chatbot',
-      title: 'AI Customer Support Bot',
-      description: 'Intelligent chatbot with natural language processing',
-      longDescription:
-        'An AI-powered customer support chatbot with advanced NLP capabilities, sentiment analysis, and integration with existing support systems.',
-      status: 'In Progress',
-      difficulty: 'Expert',
-      technologies: ['Python', 'TensorFlow', 'React', 'Node.js', 'OpenAI'],
+      difficulty: 'Intermediate',
+      technologies: ['Unity', 'C#', 'Photoshop', 'Google Play Console'],
       duration: '6 months',
-      teamSize: 5,
-      impact: 'Expected 70% reduction in support tickets',
-      category: 'AI/ML',
-      completionDate: '2024-04',
+      teamSize: 2,
+      impact: 'Published on Play Store',
+      category: 'Mobile App',
+      completionDate: '2021-12',
       githubUrl: '#',
       liveUrl: '#',
       rewards:
         styleMode === 'game'
-          ? ['2200 XP', 'AI Master', 'Language Wizard']
-          : ['AI Development', 'NLP', 'Customer Service Automation'],
+          ? ['900 XP', 'Game Dev Initiate', 'Story Weaver']
+          : ['Unity Development', 'C# Scripting', 'Game Publishing'],
     },
   ];
 

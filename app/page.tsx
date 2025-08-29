@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { Mail, User, Award, Briefcase, Building, Crown } from 'lucide-react';
+import { Book, Mail, User, Award, Briefcase, Building, Crown, TicketCheck } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { MainMenu } from '@/components/main-menu';
 import { CharacterHeader } from '@/components/character-header';
@@ -22,6 +22,8 @@ import { PatchNotes } from '@/components/patch-notes';
 import { MusicPlayer } from '@/components/music-player';
 import { ProjectModal } from '@/components/modals/project-modal';
 import { ChatMessage } from '@/components/chatbox';
+import { EducationSection } from '@/components/education';
+import { CertificationGallery } from '@/components/certifications';
 
 type ViewMode = 'menu' | 'character' | 'patchNotes';
 type StyleMode = 'normal' | 'game';
@@ -67,7 +69,7 @@ export default function RPGPortfolio() {
       contact: 'Contact',
       about: 'About',
       companies: 'Companies',
-      certificates: 'Certificates',
+      certificates: 'Certifications',
     };
   };
 
@@ -201,6 +203,16 @@ function CharacterInterface({
                 label: terminology.experience,
                 icon: Building,
               },
+              {
+                id: 'education',
+                label: terminology.education,
+                icon: Book,
+              },
+              {
+                id: 'certification',
+                label: terminology.certificates,
+                icon: TicketCheck,
+              },
               { id: 'contact', label: terminology.contact, icon: Mail },
             ].map((item, index) => (
               <Button
@@ -242,6 +254,8 @@ function CharacterInterface({
               <ProjectsSection styleMode={styleMode} onProjectClick={onProjectClick} />
             )}
             {activeTab === 'experience' && <ExperienceSection styleMode={styleMode} />}
+            {activeTab === 'education' && <EducationSection styleMode={styleMode} />}
+            {activeTab === 'certification' && <CertificationGallery styleMode={styleMode} />}
             {activeTab === 'contact' && <ContactForm styleMode={styleMode} />}
           </div>
         </Card>

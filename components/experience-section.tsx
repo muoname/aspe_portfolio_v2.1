@@ -37,135 +37,84 @@ export function ExperienceSection({ styleMode }: ExperienceSectionProps) {
 
   const experiences: Experience[] = [
     {
-      id: 'tech-innovations',
-      title: 'Tech Innovations Inc.',
-      role: 'Senior Full Stack Developer',
-      duration: '2020 - Present',
+      id: 'aws',
+      title: 'Advanced World Solutions, Inc.',
+      role: 'Junior R&D Engineer ',
+      duration: 'July 2024 – Present',
       description:
-        'Led the development of scalable web applications using React, Node.js, and GraphQL. Implemented CI/CD pipelines and automated testing frameworks. Mentored junior developers and conducted code reviews.',
+        'Full-stack engineer contributing to one of Japan’s largest real estate platforms. Implemented features, fixed sprint-critical bugs, and optimized performance using React, TypeScript, Node.js, and OracleDB.',
       responsibilities: [
-        'Developed and maintained RESTful APIs using Node.js and Express',
-        'Implemented user authentication and authorization using JWT',
-        'Optimized database queries and improved application performance',
-        'Collaborated with cross-functional teams to deliver high-quality software',
+        'Developed and maintained full-stack features for real estate platform modules',
+        'Optimized filtering and search logic for large-scale datasets',
+        'Collaborated in Agile sprints with senior engineers, QA, and product managers',
+        'Delivered sprint-critical fixes under tight deadlines with minimal regression',
       ],
-      technologies: ['React', 'Node.js', 'GraphQL', 'PostgreSQL', 'Docker', 'AWS'],
+      technologies: ['React', 'TypeScript', 'Node.js', 'OracleDB', 'GitHub'],
       achievements: [
-        'Increased application performance by 40%',
-        'Reduced bug count by 30%',
-        'Improved code coverage by 20%',
+        'Ranked Top 1 trainee during onboarding',
+        'Exceeded KPI targets by 220%',
+        'Consistently delivered sprint-critical features on time',
       ],
       skills: [
         'Full Stack Development',
-        'API Design',
+        'Agile Collaboration',
         'Database Optimization',
-        'CI/CD',
-        'Mentoring',
+        'Performance Tuning',
+        'Cross-Team Communication',
       ],
-      location: 'Las Pinas, Manila',
-      companySize: '200+',
-      industry: 'Software Development',
-      website: 'www.techinnovations.com',
-      awards: ['Best Place to Work 2022', 'Innovation Award 2021'],
-      projects: [
-        {
-          name: 'E-commerce Platform',
-          description: 'Developed a scalable e-commerce platform using React and Node.js',
-          technologies: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
-        },
-        {
-          name: 'Task Management App',
-          description:
-            'Developed a real-time task management application using React and Socket.io',
-          technologies: ['React', 'Socket.io', 'Express', 'MongoDB'],
-        },
-      ],
-    },
-    {
-      id: 'global-solutions',
-      title: 'Global Solutions Ltd.',
-      role: 'Full Stack Developer',
-      duration: '2018 - 2020',
-      description:
-        'Developed and maintained web applications using Angular, Java, and Spring Boot. Implemented responsive designs and ensured cross-browser compatibility. Collaborated with designers and product managers to deliver user-friendly interfaces.',
-      responsibilities: [
-        'Developed and maintained RESTful APIs using Java and Spring Boot',
-        'Implemented user authentication and authorization using OAuth 2.0',
-        'Optimized database queries and improved application performance',
-        'Collaborated with cross-functional teams to deliver high-quality software',
-      ],
-      technologies: ['Angular', 'Java', 'Spring Boot', 'MySQL', 'Docker', 'Azure'],
-      achievements: [
-        'Increased application performance by 30%',
-        'Reduced bug count by 20%',
-        'Improved code coverage by 10%',
-      ],
-      skills: [
-        'Full Stack Development',
-        'API Design',
-        'Database Optimization',
-        'CI/CD',
-        'Teamwork',
-      ],
-      location: 'New York, NY',
+      location: 'Makati, Philippines',
       companySize: '500+',
-      industry: 'Software Development',
-      website: 'www.globalsolutions.com',
-      awards: ['Top 100 Companies 2020', 'Customer Satisfaction Award 2019'],
+      industry: 'Software Development (Real Estate Tech)',
+      website: 'https://www.awsolutions.com/',
+      awards: ['Top 1 Trainee'],
       projects: [
         {
-          name: 'CRM System',
-          description: 'Developed a customer relationship management system using Angular and Java',
-          technologies: ['Angular', 'Java', 'Spring Boot', 'MySQL'],
+          name: 'Property Search Module',
+          description:
+            'Implemented and optimized advanced property filtering and query logic on both frontend and backend.',
+          technologies: ['React', 'TypeScript', 'Node.js', 'OracleDB'],
         },
         {
-          name: 'Inventory Management App',
-          description: 'Developed an inventory management application using Angular and Java',
-          technologies: ['Angular', 'Java', 'Spring Boot', 'MySQL'],
+          name: 'Agent Tools',
+          description:
+            'Developed internal tools for property listing and agent workflows with role-based access.',
+          technologies: ['React', 'Node.js', 'OracleDB'],
         },
       ],
     },
     {
-      id: 'innovative-tech',
-      title: 'Innovative Tech Solutions',
-      role: 'Frontend Developer',
-      duration: '2016 - 2018',
+      id: 'village88',
+      title: 'Village88 Inc.',
+      role: 'Software Developer Intern (OJT)',
+      duration: 'Jan 2024 – May 2024',
       description:
-        'Developed and maintained web applications using HTML, CSS, and JavaScript. Implemented responsive designs and ensured cross-browser compatibility. Collaborated with designers and product managers to deliver user-friendly interfaces.',
+        'Intensive hands-on training and project-based internship focusing on full-stack web development, coding best practices, and Agile workflows.',
       responsibilities: [
-        'Developed and maintained web applications using HTML, CSS, and JavaScript',
-        'Implemented responsive designs and ensured cross-browser compatibility',
-        'Collaborated with designers and product managers to deliver user-friendly interfaces',
-        'Optimized website performance and improved user experience',
+        'Developed web applications using PHP, MySQL, and JavaScript under mentorship',
+        'Practiced Agile methodologies and pair programming with peers',
+        'Improved code quality through reviews and coding standards',
       ],
-      technologies: ['HTML', 'CSS', 'JavaScript', 'jQuery', 'Bootstrap', 'Git'],
+      technologies: ['PHP', 'JavaScript', 'MySQL', 'HTML', 'CSS'],
       achievements: [
-        'Increased website traffic by 20%',
-        'Reduced bounce rate by 10%',
-        'Improved website loading time by 50%',
+        'Completed Village88 intensive OJT program',
+        'Built multiple training projects simulating real-world constraints',
       ],
-      skills: [
-        'Frontend Development',
-        'Responsive Design',
-        'Cross-Browser Compatibility',
-        'UI/UX Design',
-        'Teamwork',
-      ],
-      location: 'Los Angeles, CA',
-      companySize: '100+',
-      industry: 'Web Development',
-      website: 'www.innovativetech.com',
-      awards: ['Best Website Design 2017', 'User Experience Award 2016'],
+      skills: ['Full Stack Development', 'Agile Practices', 'Team Collaboration', 'Code Review'],
+      location: 'Remote (Philippines)',
+      companySize: '50+',
+      industry: 'Software Development Training',
+      website: 'https://village88.com/',
+      awards: [],
       projects: [
         {
-          name: 'Company Website',
-          description: 'Developed a company website using HTML, CSS, and JavaScript',
-          technologies: ['HTML', 'CSS', 'JavaScript', 'jQuery'],
+          name: 'Training Systems',
+          description: 'Built CRUD-based web apps following industry coding standards.',
+          technologies: ['PHP', 'MySQL', 'JavaScript'],
         },
         {
-          name: 'Landing Page',
-          description: 'Developed a landing page for a new product using HTML, CSS, and JavaScript',
-          technologies: ['HTML', 'CSS', 'JavaScript', 'Bootstrap'],
+          name: 'Group Exercises',
+          description: 'Collaborated on paired and group coding challenges and mini-projects.',
+          technologies: ['JavaScript', 'HTML', 'CSS'],
         },
       ],
     },
@@ -205,7 +154,7 @@ export function ExperienceSection({ styleMode }: ExperienceSectionProps) {
                   }}
                 >
                   <div className="space-y-2">
-                    <div className="absolute top-2 right-1 p-1 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                    <div className="absolute top-0 right-1 p-1 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
                       {selectedExperience ? (
                         <ChevronUp className="h-5 w-5 text-gray-600 dark:text-gray-300" />
                       ) : (

@@ -13,6 +13,8 @@ import {
   Database,
   Smartphone,
   GitBranch,
+  Wrench,
+  Code2,
 } from 'lucide-react';
 
 type StyleMode = 'normal' | 'game';
@@ -37,7 +39,9 @@ interface SkillCategory {
     | typeof Server
     | typeof Database
     | typeof Smartphone
-    | typeof GitBranch;
+    | typeof GitBranch
+    | typeof Wrench
+    | typeof Code2;
   color: string;
   bgColor: string;
   glowColor: string;
@@ -63,6 +67,12 @@ export function SkillsSection({ styleMode }: SkillsSectionProps) {
   }, []);
 
   const skillCategories: Record<string, SkillCategory> = {
+    Programming: {
+      icon: Code2,
+      color: 'text-yellow-500',
+      bgColor: 'bg-yellow-500',
+      glowColor: 'rgba(234, 179, 8, 0.4)',
+    },
     Frontend: {
       icon: Palette,
       color: 'text-blue-500',
@@ -99,80 +109,331 @@ export function SkillsSection({ styleMode }: SkillsSectionProps) {
       bgColor: 'bg-pink-500',
       glowColor: 'rgba(219, 39, 119, 0.4)',
     },
+    Others: {
+      icon: Wrench,
+      color: 'text-gray-500',
+      bgColor: 'bg-gray-500',
+      glowColor: 'rgba(107, 114, 128, 0.4)',
+    },
   };
 
   const skills: Skill[] = [
+    // ---------- Frontend (Main Arsenal) ----------
     {
-      name: 'JavaScript',
-      level: 95,
+      name: 'Next.js',
+      level: 88,
       category: 'Frontend',
-      experience: '5+ years',
-      projects: 45,
+      experience: '1.5+ yrs',
+      projects: 5,
       mastery: 'Expert',
-      description: 'Advanced ES6+, async/await, closures, prototypes',
+      description:
+        'Built portfolio and production apps with App Router, SSR, and SSG for optimized performance.',
     },
     {
       name: 'React',
+      level: 86,
+      category: 'Frontend',
+      experience: '2+ yrs',
+      projects: 6,
+      mastery: 'Expert',
+      description:
+        'Developed 30+ enterprise modules using hooks, context, and memoization; improved UI performance by 25%.',
+    },
+    {
+      name: 'shadcn/ui',
+      level: 78,
+      category: 'Frontend',
+      experience: '1+ yr',
+      projects: 3,
+      mastery: 'Advanced',
+      description:
+        'Designed modern UI with accessible, customizable components integrated with Tailwind CSS.',
+    },
+    {
+      name: 'Vue',
+      level: 68,
+      category: 'Frontend',
+      experience: '1+ yr',
+      projects: 2,
+      mastery: 'Intermediate',
+      description:
+        'Built dashboards and map features with Vue + Quasar for listing management applications.',
+    },
+    {
+      name: 'HTML',
       level: 90,
       category: 'Frontend',
-      experience: '4+ years',
-      projects: 35,
+      experience: '3+ yrs',
+      projects: 6,
       mastery: 'Expert',
-      description: 'Hooks, Context, Redux, Next.js, SSR',
+      description: 'Structured semantic, accessible markup across e-commerce and admin dashboards.',
     },
     {
-      name: 'TypeScript',
-      level: 85,
+      name: 'CSS',
+      level: 88,
       category: 'Frontend',
-      experience: '3+ years',
-      projects: 28,
-      mastery: 'Advanced',
-      description: 'Advanced types, generics, utility types',
+      experience: '3+ yrs',
+      projects: 6,
+      mastery: 'Expert',
+      description:
+        'Implemented responsive, mobile-first designs; optimized DOM for faster rendering.',
     },
+    {
+      name: 'Bootstrap',
+      level: 76,
+      category: 'Frontend',
+      experience: '2+ yrs',
+      projects: 4,
+      mastery: 'Advanced',
+      description:
+        'Styled web pages quickly with prebuilt utilities and components in training and client projects.',
+    },
+
+    // ---------- Backend ----------
     {
       name: 'Node.js',
-      level: 80,
+      level: 78,
       category: 'Backend',
-      experience: '4+ years',
-      projects: 25,
+      experience: '1.5+ yrs',
+      projects: 4,
       mastery: 'Advanced',
-      description: 'Express, APIs, microservices, authentication',
+      description:
+        'Built APIs and data filtering logic; handled sprint-critical backend tickets with React + TypeScript integration.',
     },
     {
-      name: 'Python',
-      level: 75,
+      name: 'Rails',
+      level: 68,
       category: 'Backend',
-      experience: '3+ years',
-      projects: 20,
+      experience: '1+ yr',
+      projects: 2,
       mastery: 'Intermediate',
-      description: 'Django, Flask, data processing, automation',
+      description:
+        'Developed listing and account modules with Rails + MySQL; deployed on Google Cloud Platform.',
+    },
+    {
+      name: 'CodeIgniter',
+      level: 77,
+      category: 'Backend',
+      experience: '2+ yrs',
+      projects: 3,
+      mastery: 'Advanced',
+      description:
+        'Created e-commerce backend with Stripe checkout, order management, and admin dashboard in 7 days.',
+    },
+    {
+      name: 'Spring Boot',
+      level: 68,
+      category: 'Backend',
+      experience: '1+ yr',
+      projects: 2,
+      mastery: 'Intermediate',
+      description:
+        'Built REST services in academic projects; applied OOP and enterprise design principles.',
+    },
+
+    // ---------- Database ----------
+    {
+      name: 'Supabase',
+      level: 79,
+      category: 'Database',
+      experience: '1+ yr',
+      projects: 4,
+      mastery: 'Advanced',
+      description:
+        'Implemented auth and Postgres DB integration for portfolio apps with real-time updates.',
+    },
+    {
+      name: 'MySQL',
+      level: 78,
+      category: 'Database',
+      experience: '3+ yrs',
+      projects: 5,
+      mastery: 'Advanced',
+      description:
+        'Designed schemas and optimized queries in multiple full-stack apps (CodeIgniter, Rails).',
     },
     {
       name: 'PostgreSQL',
-      level: 70,
+      level: 77,
       category: 'Database',
-      experience: '3+ years',
-      projects: 18,
+      experience: '2+ yrs',
+      projects: 4,
+      mastery: 'Advanced',
+      description:
+        'Used with Supabase and Rails apps; optimized queries and maintained data integrity.',
+    },
+    {
+      name: 'Firebase',
+      level: 68,
+      category: 'Database',
+      experience: '1+ yr',
+      projects: 3,
       mastery: 'Intermediate',
-      description: 'Complex queries, optimization, indexing',
+      description: 'Implemented realtime DB and authentication features for small projects.',
+    },
+
+    // ---------- Programming ----------
+    {
+      name: 'JavaScript',
+      level: 79,
+      category: 'Programming',
+      experience: '2+ yrs',
+      projects: 6,
+      mastery: 'Advanced',
+      description: 'Core language for most projects; applied async/await, closures, and modules.',
+    },
+    {
+      name: 'TypeScript',
+      level: 78,
+      category: 'Programming',
+      experience: '1.5+ yrs',
+      projects: 5,
+      mastery: 'Advanced',
+      description:
+        'Typed React + Node codebases; reduced bugs by leveraging generics and strict typing.',
+    },
+    {
+      name: 'Python',
+      level: 68,
+      category: 'Programming',
+      experience: '2+ yrs',
+      projects: 4,
+      mastery: 'Intermediate',
+      description: 'Automated scripts and built small Flask/Django utilities.',
+    },
+    {
+      name: 'Java',
+      level: 68,
+      category: 'Programming',
+      experience: '1+ yr',
+      projects: 3,
+      mastery: 'Intermediate',
+      description: 'Implemented REST services with Spring Boot in coursework and training.',
+    },
+    {
+      name: 'C++',
+      level: 65,
+      category: 'Programming',
+      experience: '1+ yr',
+      projects: 2,
+      mastery: 'Intermediate',
+      description: 'Academic and system-level coding experience.',
+    },
+    {
+      name: 'C#',
+      level: 66,
+      category: 'Programming',
+      experience: '1–2 yrs',
+      projects: 2,
+      mastery: 'Intermediate',
+      description: 'Unity scripting for gameplay logic in published Android game.',
+    },
+    {
+      name: 'PHP',
+      level: 77,
+      category: 'Programming',
+      experience: '2+ yrs',
+      projects: 3,
+      mastery: 'Advanced',
+      description: 'Full-stack development with CodeIgniter and MySQL; Stripe integration.',
+    },
+    {
+      name: 'Ruby',
+      level: 69,
+      category: 'Programming',
+      experience: '1+ yr',
+      projects: 2,
+      mastery: 'Intermediate',
+      description: 'Rails projects with MVC structure, DB operations, and deployment.',
+    },
+
+    // ---------- Mobile ----------
+    {
+      name: 'React Native',
+      level: 68,
+      category: 'Mobile',
+      experience: '1+ yr',
+      projects: 2,
+      mastery: 'Intermediate',
+      description: 'Built small cross-platform apps reusing React knowledge.',
+    },
+    {
+      name: 'Unity',
+      level: 66,
+      category: 'Mobile',
+      experience: '1–2 yrs',
+      projects: 2,
+      mastery: 'Intermediate',
+      description: 'Published Android game with dynamic story content and custom assets.',
+    },
+
+    // ---------- DevOps ----------
+    {
+      name: 'Vercel',
+      level: 87,
+      category: 'DevOps',
+      experience: '1+ yr',
+      projects: 4,
+      mastery: 'Expert',
+      description: 'Deployed Next.js portfolio and apps with CI/CD integration.',
+    },
+    {
+      name: 'Git/GitHub',
+      level: 85,
+      category: 'DevOps',
+      experience: '3+ yrs',
+      projects: 6,
+      mastery: 'Expert',
+      description: 'Version control across 4M+ LOC repos; enforced PR and branching standards.',
     },
     {
       name: 'Docker',
-      level: 65,
+      level: 69,
       category: 'DevOps',
-      experience: '2+ years',
-      projects: 15,
+      experience: '1+ yr',
+      projects: 3,
       mastery: 'Intermediate',
-      description: 'Containerization, orchestration, CI/CD',
+      description: 'Containerized services and used in CI/CD pipelines.',
     },
     {
-      name: 'React Native',
-      level: 60,
-      category: 'Mobile',
-      experience: '2+ years',
-      projects: 8,
+      name: 'CI/CD',
+      level: 68,
+      category: 'DevOps',
+      experience: '1+ yr',
+      projects: 2,
       mastery: 'Intermediate',
-      description: 'Cross-platform mobile development',
+      description: 'Configured GitHub Actions for testing and deployment workflows.',
+    },
+
+    // ---------- Design ----------
+    {
+      name: 'Figma',
+      level: 68,
+      category: 'Design',
+      experience: '2+ yrs',
+      projects: 3,
+      mastery: 'Intermediate',
+      description: 'Created wireframes and handoff-ready prototypes for apps.',
+    },
+
+    // ---------- Others ----------
+    {
+      name: 'Testing',
+      level: 69,
+      category: 'Others',
+      experience: '1+ yr',
+      projects: 3,
+      mastery: 'Intermediate',
+      description: 'Wrote unit tests with Jest and performed QA, reducing production bugs by 30%.',
+    },
+    {
+      name: 'API Integrations',
+      level: 77,
+      category: 'Others',
+      experience: '2+ yrs',
+      projects: 4,
+      mastery: 'Advanced',
+      description: 'Integrated Stripe payments, Google Maps API, and RESTful services in apps.',
     },
   ];
 
