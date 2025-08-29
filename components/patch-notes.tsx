@@ -2,11 +2,106 @@
 
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { ArrowLeft, Zap, Shield, Star, AlertTriangle } from 'lucide-react';
+import { ArrowLeft, Zap, Shield, Star, AlertTriangle, LucideIcon } from 'lucide-react';
 
 interface PatchNotesProps {
   onBack: () => void;
 }
+
+interface PatchNoteSection {
+  title: string;
+  subtitle: string;
+  date?: string;
+  color: string;
+  icon: LucideIcon;
+  categories: {
+    heading?: string;
+    items: string[];
+  }[];
+}
+
+const patchNotesData: PatchNoteSection[] = [
+  {
+    title: 'Version 2.0 - Current',
+    subtitle: 'Released: August 2025',
+    color: 'primary',
+    icon: Zap,
+    categories: [
+      {
+        heading: '✨ New Features',
+        items: [
+          'Dual-mode portfolio system (Professional & Adventure)',
+          'Interactive RPG-style character interface',
+          'Dynamic theme switching (Light/Dark)',
+          'Animated progress bars and skill visualizations',
+          'Project modal system with detailed quest information',
+          'Floating particle effects and animations',
+          'Responsive design across all devices',
+          'Background Music w/ Volume Slider',
+          'Chat feature',
+        ],
+      },
+    ],
+  },
+  {
+    title: 'Version 3.0 - Coming Soon',
+    subtitle: 'Expected: Q1 2025',
+    color: 'accent',
+    icon: Star,
+    categories: [
+      {
+        heading: '🔮 Planned Features',
+        items: [
+          'Interactive skill tree system',
+          'Achievement and badge collection',
+          'Blog/journal integration',
+          'Sound effects',
+          'Multi-language support',
+        ],
+      },
+      {
+        heading: '🛠️ Technical Improvements',
+        items: [
+          'Performance optimizations',
+          'Enhanced accessibility features',
+          'Progressive Web App (PWA) support',
+          'Advanced animation system',
+        ],
+      },
+    ],
+  },
+  {
+    title: 'Known Issues',
+    subtitle: 'Currently being addressed',
+    color: 'destructive',
+    icon: AlertTriangle,
+    categories: [
+      {
+        items: [
+          'Minor animation stuttering on older devices',
+          'Theme switching delay in some browsers',
+          'Modal positioning on ultra-wide screens',
+        ],
+      },
+    ],
+  },
+  {
+    title: 'Version 1.0',
+    subtitle: 'Released: March 2025',
+    color: 'secondary',
+    icon: Shield,
+    categories: [
+      {
+        heading: '🚀 Initial Release',
+        items: [
+          'Basic portfolio structure',
+          'Simple contact information',
+          'Basic responsive design',
+        ],
+      },
+    ],
+  },
+];
 
 export function PatchNotes({ onBack }: PatchNotesProps) {
   return (
@@ -31,114 +126,44 @@ export function PatchNotes({ onBack }: PatchNotesProps) {
         </div>
 
         <div className="grid gap-6">
-          {/* Current Version */}
-          <Card className="p-6 border-primary/30 bg-card/90 backdrop-blur-sm">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="p-2 bg-primary/20 rounded-full">
-                <Zap className="h-5 w-5 text-primary" />
-              </div>
-              <div>
-                <h2 className="text-2xl font-bold text-primary">Version 2.0 - Current</h2>
-                <p className="text-sm text-muted-foreground">Released: December 2024</p>
-              </div>
-            </div>
+          {patchNotesData.map((section, idx) => {
+            const Icon = section.icon;
+            return (
+              <Card
+                key={idx}
+                className={`p-6 border-${section.color}/30 bg-card/90 backdrop-blur-sm`}
+              >
+                <div className="flex items-center space-x-3 mb-4">
+                  <div className={`p-2 bg-${section.color}/20 rounded-full`}>
+                    <Icon className={`h-5 w-5 text-${section.color}`} />
+                  </div>
+                  <div>
+                    <h2 className={`text-2xl font-bold text-${section.color}`}>{section.title}</h2>
+                    <p className="text-sm text-muted-foreground">{section.subtitle}</p>
+                  </div>
+                </div>
 
-            <div className="space-y-3">
-              <h3 className="font-semibold text-lg">✨ New Features</h3>
-              <ul className="space-y-2 text-sm text-muted-foreground ml-4">
-                <li>• Dual-mode portfolio system (Professional & Adventure)</li>
-                <li>• Interactive RPG-style character interface</li>
-                <li>• Dynamic theme switching (Light/Dark)</li>
-                <li>• Animated progress bars and skill visualizations</li>
-                <li>• Project modal system with detailed quest information</li>
-                <li>• Floating particle effects and animations</li>
-                <li>• Responsive design across all devices</li>
-              </ul>
-            </div>
-          </Card>
+                <div className="space-y-3">
+                  {section.categories.map((cat, i) => (
+                    <div key={i}>
+                      {cat.heading && <h3 className="font-semibold text-lg mt-2">{cat.heading}</h3>}
+                      <ul className="space-y-2 text-sm text-muted-foreground ml-4">
+                        {cat.items.map((item, j) => (
+                          <li key={j}>• {item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
 
-          {/* Previous Versions */}
-          <Card className="p-6 border-secondary/30 bg-card/90 backdrop-blur-sm">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="p-2 bg-secondary/20 rounded-full">
-                <Shield className="h-5 w-5 text-secondary" />
-              </div>
-              <div>
-                <h2 className="text-2xl font-bold text-secondary">Version 1.0</h2>
-                <p className="text-sm text-muted-foreground">Released: November 2024</p>
-              </div>
-            </div>
-
-            <div className="space-y-3">
-              <h3 className="font-semibold text-lg">🚀 Initial Release</h3>
-              <ul className="space-y-2 text-sm text-muted-foreground ml-4">
-                <li>• Basic portfolio structure</li>
-                <li>• Static project showcase</li>
-                <li>• Simple contact information</li>
-                <li>• Basic responsive design</li>
-              </ul>
-            </div>
-          </Card>
-
-          {/* Upcoming Features */}
-          <Card className="p-6 border-accent/30 bg-card/90 backdrop-blur-sm">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="p-2 bg-accent/20 rounded-full">
-                <Star className="h-5 w-5 text-accent" />
-              </div>
-              <div>
-                <h2 className="text-2xl font-bold text-accent">Version 3.0 - Coming Soon</h2>
-                <p className="text-sm text-muted-foreground">Expected: Q1 2025</p>
-              </div>
-            </div>
-
-            <div className="space-y-3">
-              <h3 className="font-semibold text-lg">🔮 Planned Features</h3>
-              <ul className="space-y-2 text-sm text-muted-foreground ml-4">
-                <li>• Interactive skill tree system</li>
-                <li>• Achievement and badge collection</li>
-                <li>• Blog/journal integration</li>
-                <li>• Contact form with RPG-style messaging</li>
-                <li>• Sound effects and ambient audio</li>
-                <li>• Mobile app companion</li>
-                <li>• Multi-language support</li>
-              </ul>
-
-              <h3 className="font-semibold text-lg mt-4">🛠️ Technical Improvements</h3>
-              <ul className="space-y-2 text-sm text-muted-foreground ml-4">
-                <li>• Performance optimizations</li>
-                <li>• Enhanced accessibility features</li>
-                <li>• Progressive Web App (PWA) support</li>
-                <li>• Advanced animation system</li>
-                <li>• Database integration for dynamic content</li>
-              </ul>
-            </div>
-          </Card>
-
-          {/* Bug Fixes & Known Issues */}
-          <Card className="p-6 border-destructive/30 bg-card/90 backdrop-blur-sm">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="p-2 bg-destructive/20 rounded-full">
-                <AlertTriangle className="h-5 w-5 text-destructive" />
-              </div>
-              <div>
-                <h2 className="text-2xl font-bold text-destructive">Known Issues</h2>
-                <p className="text-sm text-muted-foreground">Currently being addressed</p>
-              </div>
-            </div>
-
-            <div className="space-y-3">
-              <ul className="space-y-2 text-sm text-muted-foreground ml-4">
-                <li>• Minor animation stuttering on older devices</li>
-                <li>• Theme switching delay in some browsers</li>
-                <li>• Modal positioning on ultra-wide screens</li>
-              </ul>
-
-              <p className="text-xs text-muted-foreground/60 mt-4">
-                Found a bug? Contact the developer through the character interface!
-              </p>
-            </div>
-          </Card>
+                  {section.title === 'Known Issues' && (
+                    <p className="text-xs text-muted-foreground/60 mt-4">
+                      Found a bug? Contact the developer through the character interface!
+                    </p>
+                  )}
+                </div>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </div>

@@ -283,23 +283,36 @@ function ProfileSection({
     };
   }, []);
 
-  const characterStats = {
-    level: 99,
-    experience: 15750,
-    nextLevelExp: 16000,
-    health: 100,
-    mana: 85,
-    strength: 92,
-    intelligence: 96,
-    agility: 88,
-    charisma: 90,
-    attributes: [
-      { name: 'Strength', value: 92, color: 'text-red-500' },
-      { name: 'Intelligence', value: 96, color: 'text-blue-500' },
-      { name: 'Agility', value: 88, color: 'text-green-500' },
-      { name: 'Charisma', value: 90, color: 'text-purple-500' },
-    ],
-  };
+  function getCharacterStats(startDate: string, nextLevelExp: number) {
+    const start = new Date(startDate);
+    const now = new Date();
+
+    // Calculate total years of experience as a decimal
+    const yearsElapsed = (now.getTime() - start.getTime()) / (1000 * 60 * 60 * 24 * 365);
+
+    // Calculate level
+    const totalLevels = Math.floor(yearsElapsed * 10);
+
+    // Calculate experience toward next level
+    const fractionalYear = yearsElapsed * 10 - totalLevels; // decimal part
+    const experience = Math.floor(fractionalYear * nextLevelExp);
+
+    return {
+      level: totalLevels,
+      experience,
+      nextLevelExp,
+      health: 100,
+      mana: 85,
+      attributes: [
+        { name: 'Strength', value: 92, color: 'text-red-500' },
+        { name: 'Intelligence', value: 96, color: 'text-blue-500' },
+        { name: 'Agility', value: 97, color: 'text-green-500' },
+        { name: 'Charisma', value: 90, color: 'text-purple-500' },
+      ],
+    };
+  }
+
+  const characterStats = getCharacterStats('2024-07-03', 16000);
 
   return (
     <div className="space-y-8">

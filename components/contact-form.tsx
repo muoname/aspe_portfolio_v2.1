@@ -257,15 +257,15 @@ export function ContactForm({ styleMode }: ContactFormProps) {
         <div className="space-y-2 text-sm">
           <div className="flex items-center space-x-2">
             <Mail className="w-4 h-4 text-primary" />
-            <span>developer@example.com</span>
+            <span>eugenelancea@example.com</span>
           </div>
           <div className="flex items-center space-x-2">
             <Phone className="w-4 h-4 text-primary" />
-            <span>+1 (555) 123-4567</span>
+            <span>+639 6626 74610</span>
           </div>
           <div className="flex items-center space-x-2">
             <Globe className="w-4 h-4 text-primary" />
-            <span>www.portfolio.dev</span>
+            <span>easpe@vercel.app</span>
           </div>
         </div>
       </div>

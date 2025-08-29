@@ -55,7 +55,20 @@ export function CertificationGallery({ styleMode }: CertificationsSectionProps) 
         {styleMode === 'game' ? <Scroll className="h-5 w-5" /> : <Award className="h-5 w-5" />}
         <span>{styleMode === 'game' ? 'Scrolls of Mastery' : 'Certifications'}</span>
       </h4>
+      <CardType styleMode={styleMode} certifications={certifications} />
+    </div>
+  );
+}
 
+function CardType({
+  styleMode,
+  certifications,
+}: {
+  styleMode: StyleMode;
+  certifications: Certification[];
+}) {
+  if (styleMode === 'game')
+    return (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {certifications.map((cert, index) => (
           <Card
@@ -109,6 +122,26 @@ export function CertificationGallery({ styleMode }: CertificationsSectionProps) 
           </Card>
         ))}
       </div>
-    </div>
-  );
+    );
+  else
+    return (
+      <div className="grid gap-4 grid-cols-1">
+        {certifications.map((cert, index) => (
+          <Card
+            key={index}
+            className="p-4 border transition-all duration-300 hover:scale-103 hover:border-primary/60 cursor-pointer hover:shadow-lg"
+          >
+            <div className="flex items-start space-x-3">
+              <cert.icon className="h-6 w-6 mt-1 text-primary" />
+              <div className="flex-1">
+                <h5 className="font-semibold">{cert.name}</h5>
+                <p className="text-sm text-muted-foreground">
+                  {cert.issuer} · {cert.year}
+                </p>
+              </div>
+            </div>
+          </Card>
+        ))}
+      </div>
+    );
 }

@@ -87,7 +87,7 @@ export function ProjectsSection({ styleMode, onProjectClick }: ProjectsSectionPr
       difficulty: 'Expert',
       technologies: ['React', 'TypeScript', 'Rails', 'MySQL', 'GitHub'],
       duration: '1 year',
-      teamSize: 8,
+      teamSize: 70,
       impact: '37+ features delivered',
       category: 'Web Application',
       completionDate: '2024-07',
@@ -108,7 +108,7 @@ export function ProjectsSection({ styleMode, onProjectClick }: ProjectsSectionPr
       difficulty: 'Advanced',
       technologies: ['Python', 'Node.js', 'GitHub API', 'CI/CD'],
       duration: '2 months',
-      teamSize: 2,
+      teamSize: 1,
       impact: '50% faster QA workflow',
       category: 'Productivity Tool',
       completionDate: '2023-05',
@@ -121,15 +121,15 @@ export function ProjectsSection({ styleMode, onProjectClick }: ProjectsSectionPr
     },
     {
       id: 'unity-game',
-      title: 'Android Visual Novel',
+      title: 'Dynamic Unity ARG Maker',
       description: 'Unity-powered game published on Google Play',
       longDescription:
-        'Created an interactive visual novel with branching storylines, character art, and custom dialogue system. Published on Google Play using Unity and C# scripting.',
+        'Created an interactive ARG Maker with branching storylines, character art, and custom dialogue system. Published on Google Play using Unity and C# scripting.',
       status: 'Completed',
       difficulty: 'Intermediate',
       technologies: ['Unity', 'C#', 'Photoshop', 'Google Play Console'],
       duration: '6 months',
-      teamSize: 2,
+      teamSize: 3,
       impact: 'Published on Play Store',
       category: 'Mobile App',
       completionDate: '2021-12',
@@ -139,6 +139,48 @@ export function ProjectsSection({ styleMode, onProjectClick }: ProjectsSectionPr
         styleMode === 'game'
           ? ['900 XP', 'Game Dev Initiate', 'Story Weaver']
           : ['Unity Development', 'C# Scripting', 'Game Publishing'],
+    },
+    {
+      id: 'warespace',
+      title: 'WareSpace',
+      description: 'Warehouse and property management platform',
+      longDescription:
+        'Developed a full-stack warehouse management platform using VueJS with Quasar Framework for the frontend and Ruby on Rails with MySQL for the backend. Integrated Google Maps API for location-based features. Deployed on Google Cloud Platform with full CRUD operations, role-based access, and secure sessions.',
+      status: 'Completed',
+      difficulty: 'Advanced',
+      technologies: ['VueJS', 'Quasar', 'Ruby on Rails', 'MySQL', 'Google Maps API', 'GCP'],
+      duration: '4 months',
+      teamSize: 3,
+      impact: 'Platform for managing spaces',
+      category: 'Web Application',
+      completionDate: '2023-02',
+      githubUrl: '#',
+      liveUrl: '#',
+      rewards:
+        styleMode === 'game'
+          ? ['1400 XP', 'Map Master', 'Full-Stack Builder']
+          : ['VueJS + Rails Integration', 'Google Maps API', 'Cloud Deployment'],
+    },
+    {
+      id: 'old-portfolio',
+      title: 'Next.js Portfolio (Legacy)',
+      description: 'Original developer portfolio built with Next.js',
+      longDescription:
+        'Created my first portfolio website using Next.js to showcase my projects and skills. Deployed on Vercel with responsive design and dynamic routing. Served as the foundation before building the RPG-styled portfolio.',
+      status: 'Completed',
+      difficulty: 'Intermediate',
+      technologies: ['Next.js', 'React', 'Tailwind', 'Vercel'],
+      duration: '1 month',
+      teamSize: 1,
+      impact: 'Initial Portfolio',
+      category: 'Web Application',
+      completionDate: '2023-01',
+      githubUrl: '#',
+      liveUrl: 'https://eugenelanceaspe.vercel.app/',
+      rewards:
+        styleMode === 'game'
+          ? ['800 XP', 'Portfolio Pioneer', 'Frontend Explorer']
+          : ['Next.js Deployment', 'Portfolio Foundation', 'Responsive Design'],
     },
   ];
 

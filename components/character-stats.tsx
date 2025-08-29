@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Trophy, Building, Briefcase, Award, User } from 'lucide-react';
+import { Trophy, Building, Briefcase, Award, Medal } from 'lucide-react';
 
 type StyleMode = 'normal' | 'game';
 
@@ -96,10 +96,10 @@ export function CharacterStats({ styleMode, barsAnimated, attributes }: Characte
 
       <div className="space-y-4">
         {[
-          { label: 'Years Experience', value: '5+', icon: Building },
-          { label: 'Projects Completed', value: '50+', icon: Briefcase },
-          { label: 'Companies Worked', value: '10+', icon: Award },
-          { label: 'Team Size Led', value: '15+', icon: User },
+          { label: 'Years Experience', value: '1+', icon: Building },
+          { label: 'Projects Completed', value: '12+', icon: Briefcase },
+          { label: 'Companies Worked', value: '2', icon: Award },
+          { label: 'Certifications Earned', value: '4', icon: Medal },
         ].map((stat, index) => (
           <div
             key={index}
