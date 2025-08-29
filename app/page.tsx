@@ -3,23 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import {
-  Sword,
-  Users,
-  Github,
-  ExternalLink,
-  Mail,
-  Calendar,
-  User,
-  Award,
-  X,
-  Clock,
-  TrendingUp,
-  Briefcase,
-  Building,
-  Crown,
-} from 'lucide-react';
-
+import { Mail, User, Award, Briefcase, Building, Crown, MessageCircle, X } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { MainMenu } from '@/components/main-menu';
 import { CharacterHeader } from '@/components/character-header';
@@ -36,6 +20,9 @@ import { ContactForm } from '@/components/contact-form';
 import { FloatingParticles } from '@/components/floating-particles';
 import { PatchNotes } from '@/components/patch-notes';
 import { MusicPlayer } from '@/components/music-player';
+import { ProjectModal } from '@/components/modals/project-modal';
+import { Input } from '@/components/ui/input';
+import { ChatMessage } from '@/components/chatbox';
 
 type ViewMode = 'menu' | 'character' | 'patchNotes';
 type StyleMode = 'normal' | 'game';
@@ -122,6 +109,7 @@ export default function RPGPortfolio() {
 
       <MusicPlayer />
       <ThemeToggle />
+      <ChatMessage />
 
       {isTransitioning && (
         <div className="fixed inset-0 bg-background/80 backdrop-blur-sm z-40 flex items-center justify-center">
@@ -133,7 +121,6 @@ export default function RPGPortfolio() {
           </div>
         </div>
       )}
-
       <div className="relative z-10 flex items-center justify-center min-h-screen p-4">
         {currentView === 'menu' && <MainMenu onViewChange={handleViewChange} />}
 
@@ -148,7 +135,6 @@ export default function RPGPortfolio() {
 
         {currentView === 'patchNotes' && <PatchNotes onBack={() => handleViewChange('menu')} />}
       </div>
-
       {isModalOpen && selectedProject && (
         <ProjectModal
           project={selectedProject}
@@ -348,166 +334,95 @@ function ProfileSection({
   );
 }
 
-function ProjectModal({
-  project,
-  styleMode,
-  onClose,
-  getDifficultyColor,
-}: {
-  project: ProjectType;
-  styleMode: StyleMode;
-  onClose: () => void;
-  getDifficultyColor: (difficulty: string) => string;
-}) {
-  return (
-    <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div className="bg-background border-2 border-primary/40 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl shadow-primary/20">
-        {/* Modal Header */}
-        <div className="sticky top-0 bg-background/95 backdrop-blur-sm border-b border-primary/20 p-6 flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <h2 className="text-2xl font-bold text-primary">{project.title}</h2>
-            {styleMode === 'game' && <Sword className="h-6 w-6 text-primary animate-pulse" />}
-          </div>
-          <Button
-            onClick={onClose}
-            variant="ghost"
-            size="sm"
-            className="hover:bg-primary/20 text-muted-foreground hover:text-primary"
-          >
-            <X className="h-5 w-5" />
-          </Button>
-        </div>
+// function ChatMessage() {
+//   const [chatOpen, setChatOpen] = useState(false);
+//   const [messages, setMessages] = useState([
+//     { sender: 'bot', text: 'Hi! How can I help you today?' },
+//   ]);
+//   const [input, setInput] = useState('');
 
-        {/* Modal Content */}
-        <div className="p-6 space-y-6">
-          {/* Project Overview */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <div className="lg:col-span-2 space-y-4">
-              <div>
-                <h3 className="text-lg font-semibold text-primary mb-2">
-                  {styleMode === 'game' ? 'Quest Description' : 'Project Overview'}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">{project.longDescription}</p>
-              </div>
+//   const toggleChat = () => setChatOpen(!chatOpen);
 
-              {/* Technologies */}
-              <div>
-                <h3 className="text-lg font-semibold text-primary mb-3">
-                  {styleMode === 'game' ? 'Magic & Tools Used' : 'Technologies'}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech: string, index: number) => (
-                    <span
-                      key={index}
-                      className="px-3 py-2 bg-primary/20 text-primary text-sm font-medium rounded-lg border border-primary/30 hover:bg-primary/30 transition-colors"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
+//   const sendMessage = () => {
+//     if (!input.trim()) return;
+//     setMessages([...messages, { sender: 'user', text: input }]);
+//     setInput('');
+//   };
 
-            {/* Project Stats */}
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-primary">
-                {styleMode === 'game' ? 'Quest Details' : 'Project Stats'}
-              </h3>
-              <div className="space-y-3">
-                <div className="flex items-center justify-between p-3 bg-primary/10 rounded-lg border border-primary/20">
-                  <div className="flex items-center space-x-2">
-                    <Clock className="h-4 w-4 text-primary" />
-                    <span className="text-sm font-medium">Duration</span>
-                  </div>
-                  <span className="text-sm text-muted-foreground">{project.duration}</span>
-                </div>
-                <div className="flex items-center justify-between p-3 bg-primary/10 rounded-lg border border-primary/20">
-                  <div className="flex items-center space-x-2">
-                    <Users className="h-4 w-4 text-primary" />
-                    <span className="text-sm font-medium">Team Size</span>
-                  </div>
-                  <span className="text-sm text-muted-foreground">{project.teamSize} members</span>
-                </div>
-                <div className="flex items-center justify-between p-3 bg-primary/10 rounded-lg border border-primary/20">
-                  <div className="flex items-center space-x-2">
-                    <Calendar className="h-4 w-4 text-primary" />
-                    <span className="text-sm font-medium">Completed</span>
-                  </div>
-                  <span className="text-sm text-muted-foreground">{project.completionDate}</span>
-                </div>
-                <div className="flex items-center justify-between p-3 bg-primary/10 rounded-lg border border-primary/20">
-                  <div className="flex items-center space-x-2">
-                    <TrendingUp className="h-4 w-4 text-primary" />
-                    <span className="text-sm font-medium">Impact</span>
-                  </div>
-                  <span className="text-sm text-muted-foreground">{project.impact}</span>
-                </div>
-              </div>
-            </div>
-          </div>
+//   return (
+//     <div className="fixed bottom-4 left-4 z-9999 flex items-end space-x-2">
+//       {/* Floating Chat Button */}
+//       <Button
+//         variant="outline"
+//         size="icon"
+//         onClick={toggleChat}
+//         className="border-primary/20 hover:border-primary/40 hover:bg-primary/10 bg-transparent transition-all duration-300 hover:scale-110"
+//       >
+//         <MessageCircle className="h-5 w-5 text-primary" />
+//       </Button>
 
-          {/* Status and Difficulty */}
-          <div className="flex items-center justify-between p-4 bg-primary/5 rounded-lg border border-primary/20">
-            <div className="flex items-center space-x-4">
-              <span
-                className={`px-4 py-2 rounded-full text-sm font-semibold ${
-                  project.status === 'Completed'
-                    ? 'bg-green-500/20 text-green-600 border border-green-500/40'
-                    : 'bg-blue-500/20 text-blue-600 border border-blue-500/40'
-                }`}
-              >
-                {styleMode === 'game'
-                  ? project.status === 'Completed'
-                    ? 'Quest Complete'
-                    : 'In Progress'
-                  : project.status}
-              </span>
-              <span
-                className={`px-4 py-2 rounded-full text-sm font-semibold border ${getDifficultyColor(
-                  project.difficulty,
-                )}`}
-              >
-                {styleMode === 'game' ? `${project.difficulty} Level` : project.difficulty}
-              </span>
-            </div>
-          </div>
+//       {/* Chat Window */}
+//       <div
+//         className={`fixed bottom-4 left-4 transition-all duration-300 ${
+//           chatOpen
+//             ? 'opacity-100 translate-y-0 pointer-events-auto'
+//             : 'opacity-0 translate-y-4 pointer-events-none'
+//         }`}
+//       >
+//         <div className="flex flex-col bg-background/90 backdrop-blur-md border border-primary/20 rounded-xl shadow-lg w-[20rem] sm:w-[24rem] h-[28rem] sm:h-[32rem] overflow-hidden">
+//           {/* Header */}
+//           <div className="flex justify-between items-center px-4 py-2 border-b border-primary/20 bg-primary/5">
+//             <span className="font-semibold text-primary">Leave a Message</span>
+//             <Button variant="ghost" size="icon" onClick={toggleChat} className="rounded-full">
+//               <X className="h-4 w-4 text-primary" />
+//             </Button>
+//           </div>
 
-          {/* Rewards/Achievements */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white bg-primary/60 px-4 py-2 rounded-lg border-2 border-primary shadow-lg shadow-primary/20 inline-block backdrop-blur-sm">
-              {styleMode === 'game' ? 'Quest Rewards' : 'Key Achievements'}
-            </h3>
-            <div className="flex flex-wrap gap-3">
-              {project.rewards.map((reward: string, index: number) => (
-                <span
-                  key={index}
-                  className="px-4 py-2 bg-primary/50 text-white text-sm font-semibold rounded-full border-2 border-primary shadow-md shadow-primary/30 hover:bg-primary/70 hover:shadow-lg hover:shadow-primary/40 transition-all duration-200 backdrop-blur-sm"
-                >
-                  {reward}
-                </span>
-              ))}
-            </div>
-          </div>
+//           {/* Messages */}
+//           <div className="flex-1 overflow-y-auto p-3 space-y-4 text-sm">
+//             {messages.map((msg, i) => (
+//               <div
+//                 key={i}
+//                 className={`flex flex-col ${msg.sender === 'user' ? 'items-end' : 'items-start'}`}
+//               >
+//                 {/* Name */}
+//                 <span
+//                   className={`mb-1 text-xs font-medium ${
+//                     msg.sender === 'user' ? 'text-primary' : 'text-gray-500'
+//                   }`}
+//                 >
+//                   {msg.sender === 'user' ? 'You' : msg.sender || 'Player'}
+//                 </span>
 
-          {/* Action Buttons */}
-          <div className="flex items-center justify-center space-x-4 pt-4 border-t border-primary/20">
-            <Button
-              onClick={() => window.open(project.githubUrl, '_blank')}
-              className="bg-primary/20 hover:bg-primary/30 text-primary border border-primary/40"
-            >
-              <Github className="h-4 w-4 mr-2" />
-              {styleMode === 'game' ? 'View Code Scrolls' : 'View Code'}
-            </Button>
-            <Button
-              onClick={() => window.open(project.liveUrl, '_blank')}
-              className="bg-primary hover:bg-primary/80 text-primary-foreground"
-            >
-              <ExternalLink className="h-4 w-4 mr-2" />
-              {styleMode === 'game' ? 'Enter Quest World' : 'Live Demo'}
-            </Button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
+//                 {/* Bubble */}
+//                 <div
+//                   className={`px-3 py-2 rounded-lg max-w-[80%] ${
+//                     msg.sender === 'user'
+//                       ? 'bg-primary text-white rounded-br-none'
+//                       : 'bg-primary/10 text-primary rounded-bl-none'
+//                   }`}
+//                 >
+//                   {msg.text}
+//                 </div>
+//               </div>
+//             ))}
+//           </div>
+
+//           {/* Input */}
+//           <div className="p-3 border-t border-primary/20 flex items-center gap-2">
+//             <Input
+//               value={input}
+//               onChange={(e) => setInput(e.target.value)}
+//               placeholder="Type a message..."
+//               className="flex-1"
+//               onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
+//             />
+//             <Button onClick={sendMessage} className="px-3">
+//               Send
+//             </Button>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }

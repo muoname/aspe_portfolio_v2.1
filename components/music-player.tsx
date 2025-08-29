@@ -72,7 +72,6 @@ export function MusicPlayer() {
       {/* Audio element - replace src with your music file */}
       <audio ref={audioRef} loop preload="metadata">
         <source src="/music/background-music.mp3" type="audio/mpeg" />
-        <source src="/music/background-music.ogg" type="audio/ogg" />
         Your browser does not support the audio element.
       </audio>
 

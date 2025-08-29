@@ -1,7 +1,7 @@
 import type React from 'react';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-import { ThemeProvider } from '@/components/theme-provider';
+import { ThemeProvider } from 'next-themes';
 import './globals.css';
 
 const geistSans = Geist({
@@ -19,7 +19,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'RPG Portfolio - Adventure Awaits',
   description: 'An interactive RPG-themed portfolio showcasing skills and projects',
-  generator: 'v0.app',
 };
 
 export default function RootLayout({
@@ -33,7 +32,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
-      <body className="font-sans antialiased">
+      <body className="sm:pt-15 font-sans antialiased">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>
